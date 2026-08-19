@@ -1,0 +1,98 @@
+/* =========================================================
+   MacLike Discord - Settings
+   Updated for modern Discord clients
+   ========================================================= */
+
+:root {
+    --settings-header-height: 48px;
+}
+
+
+/* =========================================================
+   Settings window top bar
+   ========================================================= */
+
+#app-mount > [class^="bar_"][class*="show_"] {
+    max-width: min(100px, 80vw);
+}
+
+
+/* =========================================================
+   Settings modal
+   ========================================================= */
+
+#app-mount
+> [class^="bar_"][class*="show_"]
+~ [class^="appAsidePanelWrapper_"]
+div[class^="app__"] {
+    visibility: hidden;
+}
+
+
+/* Settings modal container */
+
+#app-mount
+> [class^="bar_"][class*="show_"]
+~ [class^="appAsidePanelWrapper_"]
+div[data-mana-component="layer-modal"] {
+    padding-top: 0 !important;
+    min-width: 100vw;
+    height: 100dvh;
+    background: transparent !important;
+}
+
+
+/* Settings sidebar */
+
+#app-mount
+> [class^="bar_"][class*="show_"]
+~ [class^="appAsidePanelWrapper_"]
+div[data-mana-component="layer-modal"]
+[class^="container_"]
+> [class^="sidebar_"] {
+    margin-top: var(--custom-app-top-bar-height);
+}
+
+
+/* Settings header */
+
+#app-mount
+> [class^="bar_"][class*="show_"]
+~ [class^="appAsidePanelWrapper_"]
+div[data-mana-component="layer-modal"]
+[class^="container_"]
+div[class^="contentHeader_"] {
+    app-region: drag;
+}
+
+
+/* Settings header buttons */
+
+#app-mount
+> [class^="bar_"][class*="show_"]
+~ [class^="appAsidePanelWrapper_"]
+div[data-mana-component="layer-modal"]
+[class^="container_"]
+div[class^="contentHeader_"]
+> [data-mana-component="button"] {
+    app-region: no-drag !important;
+}
+
+
+/* =========================================================
+   Fixed settings content
+   ========================================================= */
+
+/*
+   Discord's generated fixedContent class changes frequently.
+   Target the element by its role/structure instead of the
+   old .fixedContent__409aa selector where possible.
+*/
+
+#app-mount
+> [class^="bar_"][class*="show_"]
+~ [class^="appAsidePanelWrapper_"]
+div[data-mana-component="layer-modal"]
+[class^="container_"]::after {
+    display: none;
+}

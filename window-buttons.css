@@ -1,0 +1,164 @@
+/* =========================================================
+   MacLike - Discord Window Buttons
+   Updated for modern Discord clients
+   ========================================================= */
+
+/* Sidebar spacing */
+div[class*="-sidebar"] [class$="itemsContainer"] {
+    margin-top: 6px !important;
+}
+
+
+/* =========================================================
+   Window button container
+   ========================================================= */
+
+div[class^="winButtons_"] {
+    --window-button-min_1: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgeG1sbnM6dj0iaHR0cHM6Ly92ZWN0YS5pby9uYW5vIj4KICA8cmVjdCByeT0iMCIgaGVpZ2h0PSIxNiIgd2lkdGg9IjE2IiBvcGFjaXR5PSIwIiBwYWludC1vcmRlcj0ibWFya2VycyBzdHJva2UgZmlsbCIgLz4KICA8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSIyIiB4PSI0IiB5PSI3IiByeT0iMSIgb3BhY2l0eT0iLjUiIC8+Cjwvc3ZnPg==");
+
+    --window-button-max_1: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgeG1sbnM6dj0iaHR0cHM6Ly92ZWN0YS5pby9uYW5vIj48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHJ5PSIwIiBvcGFjaXR5PSIwIiBwYWludC1vcmRlcj0ibWFya2VycyBzdHJva2UgZmlsbCIvPjxwYXRoIGQ9Ik02LjQxNCA1TDExIDkuNTg2VjZjMC0uNDE1LS41ODQtMS0xLTF6TTUgNi40MTRWMTBjMCAuNDE1LjU4NSAxIDEgMWgzLjU4NnoiIG9wYWNpdHk9Ii41Ii8+PC9zdmc+");
+
+    --window-button-restore_1: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgeG1sbnM6dj0iaHR0cHM6Ly92ZWN0YS5pby9uYW5vIj48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHJ5PSIwIiBvcGFjaXR5PSIwIiBwYWludC1vcmRlcj0ibWFya2VycyBzdHJva2UgZmlsbCIvPjxwYXRoIGQ9Ik03Ljk5OSAzLjQwOXYzLjU4NmMwIC40MTYuNTg0IDEgMSAxaDMuNTg2ek04IDEyLjU5VjkuMDA0YzAtLjQxNi0uNTg0LTEtMS0xSDMuNDE0eiIgb3BhY2l0eT0iLjUiLz48L3N2Zz4=");
+
+    --window-button-close_1: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgeG1sbnM6dj0iaHR0cHM6Ly92ZWN0YS5pby9uYW5vIj48cmVjdCByeT0iMCIgaGVpZ2h0PSIxNiIgd2lkdGg9IjE2IiBvcGFjaXR5PSIwIiBwYWludC1vcmRlcj0ibWFya2VycyBzdHJva2UgZmlsbCIvPjxwYXRoIGQ9Ik01LjE3MiA1LjE3MmExIDEgMCAwIDAgMCAxLjQxNEw2LjU4NiA4IDUuMTcyIDkuNDE0YTEgMSAwIDAgMCAxLjQxNCAxLjQxNEw4IDkuNDE0bDEuNDE0IDEuNDE0YTEgMSAwIDAgMCAxLjQxNC0xLjQxNEw5LjQxNCA4bDEuNDE0LTEuNDE0YTEgMSAwIDAgMC0xLjQxNC0xLjQxNEw4IDYuNTg2IDYuNTg2IDUuMTcyYTEgMSAwIDAgMC0xLjQxNCAweiIgb3BhY2l0eT0iLjUiLz48L3N2Zz4=");
+
+    --window-button-close_2: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUuMjkyODkgNkwyLjgxODAxIDMuNTI1MTNMMy41MjUxMiAyLjgxODAyTDUuOTk5OTkgNS4yOTI4OUw4LjQ3NDg3IDIuODE4MDJMOS4xODE5NyAzLjUyNTEzTDYuNzA3MSA2TDkuMTgxOTcgOC40NzQ4N0w4LjQ3NDg3IDkuMTgxOThMNS45OTk5OSA2LjcwNzExTDMuNTI1MTIgOS4xODE5OEwyLjgxODAxIDguNDc0ODdMNS4yOTI4OSA2WiIgZmlsbD0iI0EyMDAwOCIvPgo8L3N2Zz4=");
+
+    --window-button-min_2: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwLjgzMyA1Ljg1SDIuMTY3djEuM2g4LjY2N3oiIGZpbGw9IiNCMzcxMUEiLz48L3N2Zz4=");
+
+    --window-button-max_2: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcuMzkyOTMgMy4wMDg5M0wzLjAwODg3IDcuMzkyOTlMMi44MTc5NSAyLjgxODAxTDcuMzkyOTMgMy4wMDg5M1oiIGZpbGw9IiMwMjZBMTUiLz4KPHBhdGggZD0iTTQuNjA2OTUgOC45OTEwMUw4Ljk5MTAxIDQuNjA2OTVMOS4xODE5MyA5LjE4MTkzTDQuNjA2OTUgOC45OTEwMVoiIGZpbGw9IiMwMjZBMTUiLz4KPC9zdmc+");
+
+    app-region: no-drag;
+    z-index: 10000 !important;
+    order: -1 !important;
+    position: fixed !important;
+    left: 10px;
+    top: 12px;
+    cursor: default !important;
+}
+
+div[class^="winButtons_"]::before {
+    display: none !important;
+}
+
+div[class^="winButtons_"]:hover > ::after {
+    opacity: 1 !important;
+}
+
+
+/* =========================================================
+   Individual buttons
+   ========================================================= */
+
+div[class^="winButtons_"] [aria-label="Minimize"],
+div[class^="winButtons_"] [aria-label="Minimise"],
+div[class^="winButtons_"] [aria-label="Maximize"],
+div[class^="winButtons_"] [aria-label="Maximise"],
+div[class^="winButtons_"] [aria-label="Restore"],
+div[class^="winButtons_"] [aria-label="Close"] {
+    cursor: default !important;
+    padding: 0 !important;
+    height: var(--window-button-size) !important;
+    width: var(--window-button-size) !important;
+    align-self: center;
+    margin-right: 4px !important;
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 1px light-dark(#00000010, #00000000) !important;
+    background-color: light-dark(#c1c1c170, #5d5d5d70) !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    content: none !important;
+    position: relative;
+}
+
+div[class^="winButtons_"] [aria-label="Minimize"]::after,
+div[class^="winButtons_"] [aria-label="Minimise"]::after,
+div[class^="winButtons_"] [aria-label="Maximize"]::after,
+div[class^="winButtons_"] [aria-label="Maximise"]::after,
+div[class^="winButtons_"] [aria-label="Restore"]::after,
+div[class^="winButtons_"] [aria-label="Close"]::after {
+    content: "" !important;
+    position: absolute !important;
+    width: 12px !important;
+    height: 12px !important;
+    opacity: 0 !important;
+    align-self: center;
+}
+
+div[class^="winButtons_"] [aria-label="Minimize"] > svg,
+div[class^="winButtons_"] [aria-label="Minimise"] > svg,
+div[class^="winButtons_"] [aria-label="Maximize"] > svg,
+div[class^="winButtons_"] [aria-label="Maximise"] > svg,
+div[class^="winButtons_"] [aria-label="Restore"] > svg,
+div[class^="winButtons_"] [aria-label="Close"] > svg {
+    display: none !important;
+}
+
+
+/* =========================================================
+   macOS traffic-light colours
+   ========================================================= */
+
+div[class^="winButtons_"]:hover [aria-label="Minimize"],
+div[class^="winButtons_"]:hover [aria-label="Minimise"],
+.app-focused div[class^="winButtons_"] [aria-label="Minimize"],
+.app-focused div[class^="winButtons_"] [aria-label="Minimise"] {
+    background-color: #febc2e !important;
+}
+
+div[class^="winButtons_"]:hover [aria-label="Minimize"]:active,
+div[class^="winButtons_"]:hover [aria-label="Minimise"]:active {
+    background-color: #b19021 !important;
+}
+
+
+div[class^="winButtons_"]:hover [aria-label="Maximize"],
+div[class^="winButtons_"]:hover [aria-label="Maximise"],
+div[class^="winButtons_"]:hover [aria-label="Restore"],
+.app-focused div[class^="winButtons_"] [aria-label="Maximize"],
+.app-focused div[class^="winButtons_"] [aria-label="Maximise"],
+.app-focused div[class^="winButtons_"] [aria-label="Restore"] {
+    background-color: #28c840 !important;
+}
+
+div[class^="winButtons_"]:hover [aria-label="Maximize"]:active,
+div[class^="winButtons_"]:hover [aria-label="Maximise"]:active,
+div[class^="winButtons_"]:hover [aria-label="Restore"]:active {
+    background-color: #2d903e !important;
+}
+
+
+div[class^="winButtons_"]:hover [aria-label="Close"],
+.app-focused div[class^="winButtons_"] [aria-label="Close"] {
+    order: -1 !important;
+    background-color: #ff5f57 !important;
+}
+
+div[class^="winButtons_"]:hover [aria-label="Close"]:active,
+.app-focused div[class^="winButtons_"] [aria-label="Close"]:active {
+    background-color: #a24646 !important;
+}
+
+
+/* =========================================================
+   Button icons
+   ========================================================= */
+
+div[class^="winButtons_"]:hover [aria-label="Close"] {
+    background-image: var(--window-button-close_2);
+}
+
+div[class^="winButtons_"]:hover [aria-label="Minimize"],
+div[class^="winButtons_"]:hover [aria-label="Minimise"] {
+    background-image: var(--window-button-min_2);
+}
+
+div[class^="winButtons_"]:hover [aria-label="Maximize"],
+div[class^="winButtons_"]:hover [aria-label="Maximise"] {
+    background-image: var(--window-button-max_2);
+}
+
+div[class^="winButtons_"]:hover [aria-label="Restore"] {
+    background-image: var(--window-button-restore_1);
+}

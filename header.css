@@ -1,0 +1,479 @@
+/* =========================================================
+   MacLike Discord - Modern Header
+   Updated for current Discord CSS structure
+   ========================================================= */
+
+
+/* =========================================================
+   Sidebar spacing
+   ========================================================= */
+
+div[class*="-sidebar"] [class$="itemsContainer"] {
+    margin-top: 6px !important;
+}
+
+
+/* =========================================================
+   Header background variables
+   ========================================================= */
+
+:root {
+    --bg-low: color-mix(
+        in oklab,
+        var(--neutral-82) var(--glass-opacity),
+        var(--custom-theme-base-color, #000)
+        var(--custom-theme-base-color-amount, 0%)
+    );
+
+    --bg-lower: color-mix(
+        in oklab,
+        var(--neutral-86) var(--glass-opacity),
+        var(--custom-theme-base-color, #000)
+        var(--custom-theme-base-color-amount, 0%)
+    );
+}
+
+
+/* =========================================================
+   Discord top bar
+   ========================================================= */
+
+/*
+   Discord changes the generated class on this element
+   regularly. The attribute/class combination below is
+   intentionally broad.
+*/
+
+div[class^="bar_"],
+div[class*=" bar_"] {
+    app-region: no-drag;
+    padding-inline-start: var(--space-12) !important;
+    padding-inline-end: var(--space-12) !important;
+    margin-left: var(--custom-guild-sidebar-width);
+}
+
+
+/* Header title */
+div[class^="bar_"] > div[class^="title_"],
+div[class*=" bar_"] > div[class^="title_"] {
+    app-region: drag;
+    z-index: 1;
+}
+
+
+/* Header leading controls */
+div[class^="bar_"] > div[class^="leading_"],
+div[class*=" bar_"] > div[class^="leading_"] {
+    pointer-events: all;
+    app-region: no-drag !important;
+    z-index: 9999999 !important;
+}
+
+div[class^="bar_"] > div[class^="leading_"] *,
+div[class*=" bar_"] > div[class^="leading_"] * {
+    pointer-events: all;
+    app-region: no-drag !important;
+    z-index: 9999999 !important;
+}
+
+
+/* =========================================================
+   Generic Discord headers
+   ========================================================= */
+
+div[class^="header_"] {
+    app-region: drag;
+}
+
+div[class^="header_"] > * {
+    app-region: no-drag;
+}
+
+
+/* =========================================================
+   Channel header
+   ========================================================= */
+
+div[class^="subtitleContainer"] {
+    position: absolute !important;
+    width: 100% !important;
+}
+
+div[class^="subtitleContainer"] > [aria-label="Channel header"],
+div[class^="subtitleContainer"] > section[class^="headerBar_"] {
+    height: auto !important;
+    padding-top: calc(
+        var(--custom-app-top-bar-height) + var(--space-8)
+    );
+    background: transparent;
+    backdrop-filter:
+        blur(var(--glass-blur-strength))
+        saturate(var(--glass-blur-saturation))
+        brightness(var(--glass-brightness));
+}
+
+div[class^="subtitleContainer"] > [aria-label="Channel header"]::before,
+div[class^="subtitleContainer"] > section[class^="headerBar_"]::before {
+    content: "";
+    position: fixed;
+    height: 100dvh;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    background:
+        var(
+            --background-gradient-lower,
+            var(--__header-bar-background)
+        );
+    opacity: var(--glass-opacity);
+    pointer-events: none;
+}
+
+div[class^="subtitleContainer"] [class^="children"]::after {
+    display: none;
+}
+
+
+/* =========================================================
+   Main Discord page
+   ========================================================= */
+
+div[class^="page_"] {
+    --header-height:
+        calc(
+            var(--custom-channel-header-height) +
+            var(--custom-app-top-bar-height)
+        );
+
+    overflow: hidden;
+    height:
+        calc(
+            100% +
+            var(--custom-app-top-bar-height)
+        ) !important;
+
+    transform:
+        translateY(
+            calc(
+                var(--custom-app-top-bar-height) * -1
+            )
+        ) !important;
+}
+
+
+/* =========================================================
+   Message area
+   ========================================================= */
+
+div[class^="page_"] div[class^="messagesWrapper"] > div[class^="newMessagesBar_"] {
+    margin-top: var(--header-height);
+}
+
+div[class^="page_"] div[class^="messagesWrapper"] > div[class^="scroller"]::-webkit-scrollbar-track {
+    margin-top: var(--header-height);
+}
+
+div[class^="page_"] div[class^="messagesWrapper"] [class^="scrollerInner"] > [class^="container"] {
+    margin-top: var(--header-height);
+}
+
+
+/* =========================================================
+   Member list
+   ========================================================= */
+
+div[class^="page_"] [class^="membersWrap"] > ::-webkit-scrollbar-track {
+    margin-top: var(--header-height);
+}
+
+div[class^="page_"] [class*="scrollerBase"] {
+    padding-top: var(--header-height);
+}
+
+
+/* =========================================================
+   Search results
+   ========================================================= */
+
+div[class^="page_"] [class^="searchResultsWrap"] {
+    height: 100dvh;
+}
+
+div[class^="page_"] [class^="searchResultsWrap"] > ::-webkit-scrollbar-track {
+    margin-top: calc(2 * var(--header-height));
+}
+
+div[class^="page_"] [class^="searchResultsWrap"] > [class^="searchHeader"] {
+    margin-top: var(--header-height);
+    background: var(--background-base-lower);
+}
+
+div[class^="page_"] [class*="searchResultsWrap"] > [class*="scrollerBase"] {
+    width: 100%;
+    top: 0;
+    position: absolute;
+    height: inherit;
+    padding-top: calc(2 * var(--header-height));
+}
+
+
+/* =========================================================
+   User profile sidebar
+   ========================================================= */
+
+div[class^="page_"] .user-profile-sidebar {
+    padding-top: var(--header-height);
+    height: calc(100dvh - var(--header-height));
+}
+
+
+/* =========================================================
+   Threads
+   ========================================================= */
+
+div[class^="page_"] div[class^="chatLayerWrapper"] div[class^="container"] > [aria-label="Thread header"],
+div[class^="page_"] div[class^="chatLayerWrapper"] div[class^="container"] > [aria-label="Channel header"] {
+    height: auto !important;
+    padding-top:
+        calc(
+            var(--custom-app-top-bar-height) +
+            var(--space-8)
+        );
+    background: transparent;
+    backdrop-filter:
+        blur(var(--glass-blur-strength))
+        saturate(var(--glass-blur-saturation))
+        brightness(var(--glass-brightness));
+}
+
+div[class^="page_"] div[class^="chatLayerWrapper"] div[class^="container"] > [aria-label="Thread header"]::before,
+div[class^="page_"] div[class^="chatLayerWrapper"] div[class^="container"] > [aria-label="Channel header"]::before {
+    content: "";
+    position: fixed;
+    height: 100dvh;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    background:
+        var(
+            --background-gradient-lower,
+            var(--__header-bar-background)
+        );
+    opacity: var(--glass-opacity);
+    pointer-events: none;
+}
+
+
+/* Thread/chat content */
+
+div[class^="page_"] div[class^="chatLayerWrapper"] div[class^="container"] [class^="chat"] {
+    width: inherit;
+}
+
+div[class^="page_"] div[class^="chatLayerWrapper"] div[class^="container"] [class^="chat"] > [class^="chatContent"] {
+    position: fixed;
+    width: inherit;
+    top: 0;
+    height: 100dvh;
+}
+
+
+/* =========================================================
+   Content containers
+   ========================================================= */
+
+div[class^="page_"] div[class^="content"] > div[class^="container"] > ::-webkit-scrollbar-track {
+    margin-top: var(--header-height);
+}
+
+div[class^="page_"] div[class^="content"] > div[class^="container"] > [class*="scrollerBase"] {
+    padding-top: var(--header-height);
+}
+
+
+/* =========================================================
+   Friends page
+   ========================================================= */
+
+div[class^="page_"] > [aria-label="Friends"] > section[role="navigation"] {
+    height: auto;
+    padding-top: var(--custom-app-top-bar-height);
+    background-color: transparent;
+    backdrop-filter:
+        blur(var(--glass-blur-strength))
+        saturate(var(--glass-blur-saturation))
+        brightness(var(--glass-brightness));
+}
+
+div[class^="page_"] > [aria-label="Friends"] > section[role="navigation"]::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    background:
+        var(
+            --background-gradient-lower,
+            var(--__header-bar-background)
+        );
+    opacity: var(--glass-opacity);
+    pointer-events: none;
+}
+
+
+/* Friends tab body */
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] {
+    position: absolute;
+    width: 100%;
+}
+
+
+/* Friends people column */
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] {
+    position: relative;
+}
+
+
+/* Friends search */
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] > [class^="searchBar"] {
+    margin-top: var(--header-height);
+    z-index: 100;
+    width: var(--form-input-height);
+    transition: width 200ms ease;
+    position: absolute;
+    right: 20px;
+}
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] > [class^="searchBar"]:focus-within {
+    width: 50%;
+}
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] > [class^="searchBar"]:focus-within [class^="wrapper"] > input {
+    cursor: auto;
+    position: static;
+    opacity: 1;
+}
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] > [class^="searchBar"] [class^="wrapper"] {
+    backdrop-filter:
+        blur(20px)
+        saturate(var(--glass-blur-saturation))
+        brightness(var(--glass-brightness));
+    background: var(--bg-lower);
+}
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] > [class^="searchBar"] [class^="wrapper"] > input {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+}
+
+
+/* Friends list */
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] > [data-list-id="people"] {
+    width: 100%;
+    height: 100dvh;
+}
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] > [data-list-id="people"]::-webkit-scrollbar-track {
+    margin-top: var(--header-height);
+}
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="peopleColumn"] > [data-list-id="people"] > div {
+    padding-top: var(--header-height);
+}
+
+
+/* =========================================================
+   Now Playing
+   ========================================================= */
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="nowPlayingColumn"] [class^="scroller"] {
+    padding-top: var(--header-height);
+}
+
+div[class^="page_"] > [aria-label="Friends"] > [class^="tabBody"] > [class^="nowPlayingColumn"] [class^="scroller"]::-webkit-scrollbar-track {
+    margin-top: var(--header-height);
+}
+
+
+/* =========================================================
+   Home page
+   ========================================================= */
+
+div[class^="page_"] div[class^="homeWrapper"] > section[role="navigation"] {
+    background-color: transparent;
+    backdrop-filter:
+        blur(var(--glass-blur-strength))
+        saturate(var(--glass-blur-saturation))
+        brightness(var(--glass-brightness));
+}
+
+div[class^="page_"] div[class^="homeWrapper"] > section[role="navigation"]::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    background:
+        var(
+            --background-gradient-lower,
+            var(--__header-bar-background)
+        );
+    opacity: var(--glass-opacity);
+    pointer-events: none;
+}
+
+div[class^="page_"] div[class^="homeWrapper"] [class^="children"]::after {
+    display: none;
+}
+
+
+/* Home page scroller */
+
+div[class^="page_"] div[class^="homeWrapper"] > div[class^="mainPageScroller"] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+div[class^="page_"] div[class^="homeWrapper"] > div[class^="mainPageScroller"]::-webkit-scrollbar-track {
+    margin-top: var(--custom-channel-header-height);
+}
+
+
+/* =========================================================
+   Settings modal
+   ========================================================= */
+
+div[data-mana-component="layer-modal"] div[class^="contentHeader_"] {
+    --settings-header-background:
+        color-mix(
+            in srgb,
+            var(--background-base-low) var(--glass-opacity),
+            transparent
+        );
+
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    padding-inline: 0;
+    padding-left: var(--space-16);
+    padding-right: var(--space-8);
+    background: var(--settings-header-background);
+    backdrop-filter:
+        blur(var(--glass-blur-strength))
+        saturate(var(--glass-blur-saturation))
+        brightness(var(--glass-brightness));
+}
+
+div[data-mana-component="layer-modal"] div[class^="scroller"]::-webkit-scrollbar-track {
+    margin-top: var(--settings-header-height);
+}
