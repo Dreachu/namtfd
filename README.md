@@ -25,7 +25,3 @@ A Discord client mod is required.
 4.  Click the `Open Themes Folder` button.
 5.  Move the downloaded `namftd.theme.css` or `namftd-right.theme.css` file into the opened folder.
 6.  Return to Discord and enable `namftd` from the theme list.
-
-## Planned Features
-- [ ] **Font Integration**: Replacing the default font with SF Fonts
-- [ ] **Animations**: Replicate macOS-style UI animations and transitions (context menu)
